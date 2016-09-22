@@ -1,8 +1,5 @@
 #!/bin/bash
-
-
 ## This script is designed to help me cleanup my docker fluff
-
 
 ########## REMOVE OLD CONTAINERS
 if [ "$1" = "--containers" ]; then
