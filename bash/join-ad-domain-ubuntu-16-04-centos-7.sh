@@ -15,7 +15,16 @@ DOMAIN="DOMAIN.WHATEVER"
 ALLOWEDGROUP="domain\ admins"
 
 # Install Required Packages
-apt -y install realmd sssd adcli libwbclient-sssd krb5-user sssd-tools samba-common packagekit samba-common-bin samba-libs
+echo "Centos or Ubuntu?"
+echo "c/u?"
+read OPERATINGSYSTEM
+if [ $OPERATINGSYSTEM = c ]; then
+        yum -y install realmd samba samba-common oddjob oddjob-mkhomedir sssd ntpdate ntp
+fi
+
+if [ $OPERATINGSYSTEM = u ]; then
+        apt -y install realmd sssd adcli libwbclient-sssd krb5-user sssd-tools samba-common packagekit samba-common-bin samba-libs
+fi
 
 # A popup will ask for the Default Kerberos version realm
 # It's whatever you specified for the DOMAIN
